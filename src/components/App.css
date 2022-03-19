@@ -46,6 +46,16 @@ body {
     cursor: pointer;
     color: rgb(150, 150, 150);
 }
+.cagntxthvr {
+    transition: color .3s;
+}
+.cagntxthvr:hover {
+    cursor: pointer;
+    color: rgb(150, 150, 150);
+}
+.cagntxthvr div {
+    color: inherit;
+}
 .agnf {
     width: 500px;
     height: 700px;

@@ -47,13 +47,13 @@ class Main extends Component {
         return (
             <div>
                 <div style={{width: 400, margin: '10px'}}>
-                    <div>Tip Authors</div>
+                    <div style={{marginBottom: '20px'}} className='agnbold'>TIP AUTHORS</div>
                     <input style={{margin: 'auto', width:'80%', display: 'block'}} placeholder='Ethereum address' className='agnsuf' onChange={e => this.updateAddrVal(e)}></input>
-                    <div style={{marginTop: '20px', width: '39%', padding: '0px'}}className='agnbtn'>
+                    <div style={{marginLeft: '40px',marginTop: '20px', width: '40%', padding: '0px', float: 'left', display: 'flex'}}className='agnbtn'>
                         <input style={{display: 'inline-block', width: '100%', marginTop: '0px'}} placeholder='Amount' className='agnsuf' type="number" onChange={e => this.updateAmount(e)}></input>
                     </div>
-                    <div style={{marginTop: '20px', width: '39%'}}className='agnbtn agntxthvr' onClick={e => this.apost()}>
-                        a
+                    <div style={{marginTop: '20px', width: '35%', display: 'flex', marginLeft: '20px', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.apost()}>
+                        <div className='agntxthvr' style={{height: '25px'}}>Send</div>
                     </div>
                 </div>
             </div>
