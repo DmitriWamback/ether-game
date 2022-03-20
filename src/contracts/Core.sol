@@ -5,6 +5,8 @@ contract Core {
     mapping(address => User) users;
     mapping(int => Post)     posts;
 
+    uint public count;
+
     struct User {
         string          username;
         address payable uniqueIdentifier;
@@ -19,6 +21,8 @@ contract Core {
         int             score;
         address payable author;
     }
+
+    event Incremented(uint i);
 
     function onEntered(address payable wallet, string memory username, string memory password) public {
 
@@ -36,5 +40,10 @@ contract Core {
 
     function tipUser(address payable id) public payable {
         address(id).transfer(msg.value);
+    }
+
+    function increment() public {
+        count = count + 100;
+        emit Incremented(count);
     }
 }

@@ -154,3 +154,16 @@ input:focus {
         margin-top: 0px;
     }
 }
+
+.image-container {
+    width: 1400px;
+    margin: auto;
+    border-top: 2px solid rgb(34, 43, 51);
+}
+
+@media only screen and (max-width: 1400px) {
+
+    .image-container {
+        width: 100%;
+    }
+}

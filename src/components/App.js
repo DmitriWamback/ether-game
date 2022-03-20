@@ -45,8 +45,16 @@ class App extends Component {
     }
 
     post_image(a) {
-        this.state.posts[this.state.nbposts] = [a, this.state.account]
-        this.setState({nbposts: this.state.nbposts + 1})
+
+        if (a.length > 0 && a.length <= 20) {
+            this.state.posts[this.state.nbposts] = [a, this.state.account]
+            this.setState({nbposts: this.state.nbposts + 1})
+        }
+    }
+
+    updateStatus(evt) {
+        const val = evt.target.value
+        this.setState({_status: val})
     }
 
     constructor(props) {
@@ -56,6 +64,7 @@ class App extends Component {
             contract: null,
             posts: [],
             nbposts: 0,
+            _status: ''
         }
     }
 
@@ -64,25 +73,23 @@ class App extends Component {
             <div>
 
                 <Navbar account={this.state.account}/>
-                <div style={{width: '100%'}}>
+                <div style={{width: '100%', height: 470, display: 'flex', justifyContent: 'center'}}>
                     <Main account={this.state.account} contract={this.state.contract}/>
-                    <div style={{display: "inline-block"}}>
-                        <div style={{display: "inline-block"}}>
-                            <div style={{width: 350, height: 200, margin: '10px'}}>
-                                <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>WELCOME BACK TO ETHER-GAME</div>
+                    <div style={{display: "inline-block", width: '370px', height: '470px'}}>
+                        <div style={{width: 350, height: 200, margin: '10px', display: 'inline-block'}}>
+                            <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>WELCOME BACK TO ETHER-GAME</div>
+                            <div style={{marginLeft: '10%', width: '80%', padding: '0px', float: 'left', display: 'flex', height: '50px'}}className='agnbtn'>
+                                <input style={{display: 'block', width: '100%', marginTop: '0px', height: '100%', textAlign: 'left', height: 50}} placeholder="I'm feeling..." className='agnsuf' onChange={e => this.updateStatus(e)}></input>
                             </div>
-                            <div style={{width: 350, height: 200, margin: '10px'}}>
-                                <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>MY FEED</div>
-                                <div style={{width: '80%', margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.post_image('Hello World!')}>
-                                    <div className='agntxthvr' style={{height: '25px'}}>Post</div>
-                                </div>
+                            <div style={{width: '80%', margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '90px'}}className='agnbtn cagntxthvr' onClick={e => this.post_image(this.state._status)}>
+                                <div className='agntxthvr' style={{height: '25px'}}>Post</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style={{width: '1400px', margin: 'auto', borderTop: '2px solid rgb(34, 43, 51)'}}>
+                <div className='image-container'>
                     {
-                        this.state.posts.map(o => <Post account={o[1]} contract={this.state.contract} msg={o[0]}/>)
+                        this.state.posts.map((val, index, o) => <Post account={this.state.posts[this.state.posts.length - 1 - index][1]} contract={this.state.contract} msg={this.state.posts[this.state.posts.length - 1 - index][0]}/>)
                     }
                 </div>
             </div>
