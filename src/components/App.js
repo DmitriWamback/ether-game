@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import './App.css';
 import Core from '../abis/Core.json'
 import Navbar from './Navbar'
-import Main from './Main'
+import Main from './TipPanel'
 
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
             window.web3 = new Web3(window.web3.currentProvider)
         }
         else {
-            alert("ayo")
+            alert("Non-ethereum browser")
         }
     }
 
@@ -55,7 +55,9 @@ class App extends Component {
         return (
             <div>
                 <Navbar account={this.state.account}/>
-                <Main account={this.state.account} contract={this.state.contract}/>
+                <div style={{width: '100%'}}>
+                    <Main account={this.state.account} contract={this.state.contract}/>
+                </div>
             </div>
         );
     }
