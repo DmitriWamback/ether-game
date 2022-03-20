@@ -59,23 +59,23 @@ class TipPanel extends Component {
         return (
             <div style={{display: "inline-block"}}>
                 <div style={{display: "inline-block"}}>
-                    <div style={{width: 400, height: 200, margin: '10px'}}>
+                    <div style={{width: 350, height: 200, margin: '10px'}}>
                         <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>TIP AUTHORS</div>
                         <input style={{margin: 'auto', width:'80%', display: 'block'}} placeholder='Ethereum address' className='agnsuf' onChange={e => this.updateAddrVal(e)}></input>
                         <div style={{marginLeft: '10%',marginTop: '20px', width: '40%', padding: '0px', float: 'left', display: 'flex'}}className='agnbtn'>
                             <input style={{display: 'inline-block', width: '100%', marginTop: '0px'}} placeholder='Amount' className='agnsuf' type="number" onChange={e => this.updateAmount(e)}></input>
                         </div>
-                        <div style={{marginTop: '20px', width: '35%', display: 'flex', marginLeft: '20px', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.apost()}>
+                        <div style={{marginTop: '20px', width: '35%', display: 'flex', marginLeft: '5%', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.apost()}>
                             <div className='agntxthvr' style={{height: '25px'}}>Send</div>
                         </div>
                     </div>
-                    <div style={{width: 400, height: 200, margin: '10px'}}>
+                    <div style={{width: 350, height: 200, margin: '10px'}}>
                         <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>BALANCES</div>
                         <input style={{margin: 'auto', width:'80%', display: 'block'}} placeholder='Ethereum address' className='agnsuf' onChange={e => this.updatebaddr(e)}></input>
-                        <div style={{marginTop: '20px', width: '40%', display: 'flex', marginLeft: '40px', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn'>
+                        <div style={{marginTop: '20px', width: '40%', display: 'flex', marginLeft: '10%', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn'>
                             <div id='baddr' style={{height: '25px'}}>0 ETH</div>
                         </div>
-                        <div style={{marginTop: '20px', width: '35%', display: 'flex', marginLeft: '20px', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.getBalance()}>
+                        <div style={{marginTop: '20px', width: '35%', display: 'flex', marginLeft: '5%', float: 'left', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.getBalance()}>
                             <div className='agntxthvr' style={{height: '25px'}}>View</div>
                         </div>
                     </div>

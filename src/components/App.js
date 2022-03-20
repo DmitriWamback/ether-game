@@ -4,7 +4,8 @@ import './App.css';
 import Core from '../abis/Core.json'
 import Navbar from './Navbar'
 import Main from './TipPanel'
-
+import Feed from './Feed'
+import Post from './Post'
 
 class App extends Component {
 
@@ -43,20 +44,46 @@ class App extends Component {
         }
     }
 
+    post_image(a) {
+        this.state.posts[this.state.nbposts] = [a, this.state.account]
+        this.setState({nbposts: this.state.nbposts + 1})
+    }
+
     constructor(props) {
         super(props)
         this.state = {
             account: '',
-            contract: null
+            contract: null,
+            posts: [],
+            nbposts: 0,
         }
     }
 
     render() {
         return (
             <div>
+
                 <Navbar account={this.state.account}/>
                 <div style={{width: '100%'}}>
                     <Main account={this.state.account} contract={this.state.contract}/>
+                    <div style={{display: "inline-block"}}>
+                        <div style={{display: "inline-block"}}>
+                            <div style={{width: 350, height: 200, margin: '10px'}}>
+                                <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>WELCOME BACK TO ETHER-GAME</div>
+                            </div>
+                            <div style={{width: 350, height: 200, margin: '10px'}}>
+                                <div style={{marginBottom: '20px', marginTop: '30px'}} className='agnbold'>MY FEED</div>
+                                <div style={{width: '80%', margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center'}}className='agnbtn cagntxthvr' onClick={e => this.post_image('Hello World!')}>
+                                    <div className='agntxthvr' style={{height: '25px'}}>Post</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style={{width: '1400px', margin: 'auto', borderTop: '2px solid rgb(34, 43, 51)'}}>
+                    {
+                        this.state.posts.map(o => <Post account={o[1]} contract={this.state.contract} msg={o[0]}/>)
+                    }
                 </div>
             </div>
         );

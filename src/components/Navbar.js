@@ -5,7 +5,6 @@ class Navbar extends Component {
 
   getAddr() {
       navigator.clipboard.writeText(this.props.account)
-      alert('copied to clipboard')
   }
 
   render() {
